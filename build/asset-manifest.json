@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/practice_react_ts/build/static/css/main.88ff3e43.chunk.css",
+    "main.js": "/practice_react_ts/build/static/js/main.d47aece1.chunk.js",
+    "main.js.map": "/practice_react_ts/build/static/js/main.d47aece1.chunk.js.map",
+    "runtime-main.js": "/practice_react_ts/build/static/js/runtime-main.f306e2af.js",
+    "runtime-main.js.map": "/practice_react_ts/build/static/js/runtime-main.f306e2af.js.map",
+    "static/css/2.341c7718.chunk.css": "/practice_react_ts/build/static/css/2.341c7718.chunk.css",
+    "static/js/2.97ec0c11.chunk.js": "/practice_react_ts/build/static/js/2.97ec0c11.chunk.js",
+    "static/js/2.97ec0c11.chunk.js.map": "/practice_react_ts/build/static/js/2.97ec0c11.chunk.js.map",
+    "index.html": "/practice_react_ts/build/index.html",
+    "precache-manifest.d5fc211d0f5646c4e64be79245936d6b.js": "/practice_react_ts/build/precache-manifest.d5fc211d0f5646c4e64be79245936d6b.js",
+    "service-worker.js": "/practice_react_ts/build/service-worker.js",
+    "static/css/2.341c7718.chunk.css.map": "/practice_react_ts/build/static/css/2.341c7718.chunk.css.map",
+    "static/css/main.88ff3e43.chunk.css.map": "/practice_react_ts/build/static/css/main.88ff3e43.chunk.css.map",
+    "static/js/2.97ec0c11.chunk.js.LICENSE.txt": "/practice_react_ts/build/static/js/2.97ec0c11.chunk.js.LICENSE.txt",
+    "static/media/slick-theme.css": "/practice_react_ts/build/static/media/slick.f97e3bbf.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f306e2af.js",
+    "static/css/2.341c7718.chunk.css",
+    "static/js/2.97ec0c11.chunk.js",
+    "static/css/main.88ff3e43.chunk.css",
+    "static/js/main.d47aece1.chunk.js"
+  ]
+}

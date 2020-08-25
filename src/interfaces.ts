@@ -1,6 +1,7 @@
 export interface IMenuList {
   id: number;
   title: string;
+  url: string;
   items: IMenuListItems[];
 }
 

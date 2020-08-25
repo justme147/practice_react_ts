@@ -4,14 +4,15 @@ import { NavLink, useHistory } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+// import { CSSTransition } from "react-transition-group";
 
 import "./mainlayout.scss";
-import IconMenu from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
+
+import { Header } from "../../components/Header/Header";
 // import AutorenewIcon from "@material-ui/icons/Autorenew";
-import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
-import FormatLineSpacingIcon from "@material-ui/icons/FormatLineSpacing";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+// import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
+// import FormatLineSpacingIcon from "@material-ui/icons/FormatLineSpacing";
+// import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -24,6 +25,7 @@ export const MainLayout: React.FC = () => {
     {
       id: 1,
       title: "Конвертер",
+      url: "/converter",
       items: [
         { id: 1, title: "Базовые", url: "/converter/basic" },
         { id: 2, title: "Специальные", url: "/converter/special" },
@@ -34,6 +36,7 @@ export const MainLayout: React.FC = () => {
     {
       id: 2,
       title: "Матрицы",
+      url: "/matrix",
       items: [
         { id: 1, title: "Сложение", url: "/matrix/addition" },
         { id: 2, title: "Разность", url: "/matrix/residual" },
@@ -61,6 +64,7 @@ export const MainLayout: React.FC = () => {
     {
       id: 3,
       title: "СЛАУ",
+      url: "/slau",
       items: [
         { id: 1, title: "Метод Крамера", url: "/slau/cramer" },
         { id: 2, title: "Метод обратной матрицы", url: "/slau/inverse_matrix" },
@@ -76,6 +80,7 @@ export const MainLayout: React.FC = () => {
     {
       id: 4,
       title: "Другое",
+      url: "/other",
       items: [
         { id: 1, title: "Квадратные уравнения", url: "/other/quadratic" },
         {
@@ -118,6 +123,7 @@ export const MainLayout: React.FC = () => {
     {
       id: 5,
       title: "Конвертер",
+      url: "/converter",
       items: [
         { id: 1, title: "Базовые", url: "/converter/basic" },
         { id: 2, title: "Специальные", url: "/converter/special" },
@@ -128,6 +134,7 @@ export const MainLayout: React.FC = () => {
     {
       id: 6,
       title: "Конвертер",
+      url: "/converter",
       items: [
         { id: 1, title: "Базовые", url: "/converter/basic" },
         { id: 2, title: "Специальные", url: "/converter/special" },
@@ -140,45 +147,45 @@ export const MainLayout: React.FC = () => {
   const [sliderList, setSLiderList] = useState<ISliderList[]>([
     {
       id: 1,
-      title: "Конвертер",
+      title: "Конвертер, базовые",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur est sequi eligendi at, itaque fugiat accusantium esse perferendis sunt aut repudiandae atque, obcaecati animi impedit ea distinctio sit error numquam, ipsam alias sapiente voluptatibus saepe dicta eius? Corporis expedita perspiciatis excepturi quam voluptatibus in nostrum sequi placeat similique?",
-      url: "/converter",
+      url: "/converter/basic",
     },
     {
       id: 2,
-      title: "Конвертер1",
+      title: "Матрицы, произведение",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur est sequi eligendi at, itaque fugiat accusantium esse perferendis sunt aut repudiandae atque, obcaecati animi impedit ea distinctio sit error numquam, ipsam alias sapiente voluptatibus saepe dicta eius? Corporis expedita perspiciatis excepturi quam voluptatibus in nostrum sequi placeat similique?",
-      url: "/converter1",
+      url: "/matrix/multiplication",
     },
     {
       id: 3,
-      title: "Конвертер2",
+      title: "Матрицы, определитель",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur est sequi eligendi at, itaque fugiat accusantium esse perferendis sunt aut repudiandae atque, obcaecati animi impedit ea distinctio sit error numquam, ipsam alias sapiente voluptatibus saepe dicta eius? Corporis expedita perspiciatis excepturi quam voluptatibus in nostrum sequi placeat similique?",
-      url: "/converter2",
+      url: "/matrix/determinant",
     },
     {
       id: 4,
-      title: "Конвертер3",
+      title: "СЛАУ, метод Гаусса",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur est sequi eligendi at, itaque fugiat accusantium esse perferendis sunt aut repudiandae atque, obcaecati animi impedit ea distinctio sit error numquam, ipsam alias sapiente voluptatibus saepe dicta eius? Corporis expedita perspiciatis excepturi quam voluptatibus in nostrum sequi placeat similique?",
-      url: "/converter3",
+      url: "/slau/gauss",
     },
     {
       id: 5,
-      title: "Конвертер4",
+      title: "Другое, квадратные уравнения",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur est sequi eligendi at, itaque fugiat accusantium esse perferendis sunt aut repudiandae atque, obcaecati animi impedit ea distinctio sit error numquam, ipsam alias sapiente voluptatibus saepe dicta eius? Corporis expedita perspiciatis excepturi quam voluptatibus in nostrum sequi placeat similique?",
-      url: "/converter4",
+      url: "/other/quadratic",
     },
     {
       id: 6,
-      title: "Конвертер5",
+      title: "Другое, производные",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur est sequi eligendi at, itaque fugiat accusantium esse perferendis sunt aut repudiandae atque, obcaecati animi impedit ea distinctio sit error numquam, ipsam alias sapiente voluptatibus saepe dicta eius? Corporis expedita perspiciatis excepturi quam voluptatibus in nostrum sequi placeat similique?",
-      url: "/converter5",
+      url: "/other/derivative",
     },
   ]);
   const [displayChild, setDisplayChild] = useState<number>(0);
@@ -249,41 +256,52 @@ export const MainLayout: React.FC = () => {
 
   return (
     <div className="container">
-      {/* Start header section */}
-
-      <header className="header">
-        <div className="header-inner">
-          <button className="header-button" onClick={() => setIsMenu(true)}>
-            <IconMenu />
-          </button>
-          <h6 className="header-logo" onClick={() => history.push("/")}>
-            Math helper
-          </h6>
-          <div className="header-search">
-            <div className="header-icon">
-              <SearchIcon />
-            </div>
-            <div className="header-input">
-              <input type="text" placeholder="Поиск..." />
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* End header section */}
+      <Header clickHandler={() => setIsMenu(true)} />
 
       {/* Start slider section */}
 
       {/* <section className={styles.slider}> */}
 
       <main className="main">
-        <div className="main-content"></div>
+        <div className="content">
+          <div className="content-inner">
+            {/* <div className="content-header">
+              <a className="content-logo" onClick={() => history.push("/")}>
+                Math helper
+              </a>
+            </div> */}
+            <div className="content-body">
+              {/* <h1 className="content-title">Math helper</h1> */}
+
+              <h2 className="content-subtitle">Помощник по математике</h2>
+              <h1 className="content-title">Math helper</h1>
+
+              <p className="content-text">
+                Данный помощник дает возможность воспользоваться теорией и
+                калькуляторами по следующим разделам:
+              </p>
+              <ul className="content-list">
+                {menuList.map((item) => (
+                  <li className="content-item" key={item.id}>
+                    <NavLink to={item.url}>{item.title}</NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="content-footer">
+              <p className="content-copyright">© 2020 «Math helper»</p>
+              {/* <a href="mailto:math_helper@gmail.com" className="content-mail">
+                math_helper@gmail.com
+              </a> */}
+            </div>
+          </div>
+        </div>
 
         <Slider
           dots={true}
           speed={1000}
           easing="ease"
-          autoplay={true}
+          // autoplay={true}
           autoplaySpeed={4000}
           touchThreshold={10}
           className="slider"
@@ -314,7 +332,7 @@ export const MainLayout: React.FC = () => {
       {isMenu && (
         <div className="sidebar-inner" onClick={(e) => windowClickHandler(e)}>
           <div className="sidebar">
-            <nav className="sidebar-menu">
+            <div className="sidebar-menu">
               <ul className="sidebar-list">
                 {menuList.map((item) => (
                   <li
@@ -336,7 +354,7 @@ export const MainLayout: React.FC = () => {
                   </li>
                 ))}
               </ul>
-            </nav>
+            </div>
           </div>
         </div>
       )}
