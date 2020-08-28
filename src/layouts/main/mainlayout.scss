@@ -102,11 +102,13 @@
       // background-color: #fafafa;
 
       & > svg > path {
-        fill: #0091ea;
+        // fill: #0091ea;
+        fill: #0ec261;
       }
 
       & > span {
-        color: #0091ea;
+        // color: #0091ea;
+        color: #0ec261;
       }
     }
 
@@ -115,11 +117,13 @@
       // box-shadow: inset 0px -2px 10px -9px rgba(0, 0, 0, 0.75),
       //   inset 0px 2px 10px -9px rgba(0, 0, 0, 0.75);
       & > svg > path {
-        fill: #0091ea;
+        // fill: #0091ea;
+        fill: #0ec261;
       }
 
       & > span {
-        color: #0091ea;
+        // color: #0091ea;
+        color: #0ec261;
       }
     }
 
@@ -140,12 +144,14 @@
       // border-color: #0ec261;
 
       a > span {
-        color: #0091ea;
+        // color: #0091ea;
+        color: #0ec261;
         text-decoration: underline;
       }
 
       a > svg > path {
-        fill: #0091ea;
+        // fill: #0091ea;
+        fill: #0ec261;
       }
     }
 
@@ -182,13 +188,13 @@
 
     &__active {
       svg > path {
-        // fill: #0ec261;
-        fill: #00609c;
+        fill: #0ec261;
+        // fill: #00609c;
       }
 
       span {
-        // color: #0ec261;
-        color: #00609c;
+        color: #0ec261;
+        // color: #00609c;
         text-decoration: underline;
       }
     }
@@ -202,6 +208,7 @@
 
 .content {
   width: 50%;
+  text-align: center;
 
   &-inner {
     // height: calc(100% - 64px);
@@ -221,7 +228,8 @@
 
   &-logo {
     font-size: 27px;
-    color: #0091ea;
+    // color: #0091ea;
+    color: #0ec261;
     font-weight: 700;
     line-height: 35px;
     cursor: pointer;
@@ -231,27 +239,29 @@
   }
 
   &-subtitle {
-    font-size: 45px;
+    font-size: 40px;
     line-height: 60px;
     // color: #0091ea;
     color: #1f262b;
     // margin: 0;
     // margin-top: 15px;
-    margin: 0.5em 0 0;
+    // margin: 0.5em 0 0;
   }
 
   &-title {
-    font-size: 70px;
-    color: #0091ea;
+    font-size: 50px;
+    // color: #0091ea;
+    color: #0ec261;
     line-height: 70px;
     margin: 0px 0 0;
+    // margin-top: 10px;
     // text-transform: uppercase;
     // margin-bottom: 0;
     // margin: 0.4em 0 0;
   }
 
   &-text {
-    font-size: 20px;
+    font-size: 19px;
     color: #777;
     line-height: 1.5;
     margin-top: 30px;
@@ -264,13 +274,13 @@
     display: flex;
     // flex-direction: column;
     flex-wrap: wrap;
-    // justify-content: center;
-    margin-top: 20px;
+    justify-content: center;
+    margin-top: 40px;
   }
 
   &-item {
-    // width: calc(100% / 4);
-    width: 50%;
+    width: calc(100% / 4);
+    // width: 50%;
     padding: 10px 0;
     // text-align: center;
 
@@ -279,11 +289,13 @@
       // font-weight: 300;
 
       &:hover {
-        color: #0091ea;
+        // color: #0091ea;
+        color: #0ec261;
       }
 
       &:active {
-        color: #00609c;
+        // color: #00609c;
+        color: #0faa57;
       }
     }
   }
@@ -349,8 +361,8 @@
     // text-transform: uppercase;
     color: #fff;
     border: none;
-    // background-color: #0ec261;
-    background-color: #0091ea;
+    background-color: #0ec261;
+    // background-color: #0091ea;
     width: 160px;
     padding: 10px 0;
     border-radius: 4px;
@@ -359,13 +371,13 @@
     transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-      // background-color: #0a994d;
-      background-color: #006bad;
+      background-color: #0a994d;
+      // background-color: #006bad;
     }
 
     &:active {
-      // background-color: #077e3f;
-      background-color: #00609c;
+      background-color: #077e3f;
+      // background-color: #00609c;
     }
   }
 }
@@ -410,8 +422,8 @@
   }
 
   &:hover {
-    // background-color: rgba(14, 194, 97, 0.2);
-    background-color: rgba(0, 145, 234, 0.2);
+    background-color: rgba(14, 194, 97, 0.2);
+    // background-color: rgba(0, 145, 234, 0.2);
 
     svg {
       fill: #fff;
@@ -462,7 +474,8 @@
 }
 /* Активная точка */
 .slick-dots li.slick-active button:before {
-  background-color: #0091ea;
+  // background-color: #0091ea;
+  background-color: #0ec261;
 }
 
 @keyframes menu {

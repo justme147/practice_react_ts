@@ -265,16 +265,16 @@ export const MainLayout: React.FC = () => {
       <main className="main">
         <div className="content">
           <div className="content-inner">
-            {/* <div className="content-header">
-              <a className="content-logo" onClick={() => history.push("/")}>
+            <div className="content-header">
+              {/* <a className="content-logo" onClick={() => history.push("/")}>
                 Math helper
-              </a>
-            </div> */}
+              </a> */}
+              <h1 className="content-title">Math helper</h1>
+            </div>
             <div className="content-body">
               {/* <h1 className="content-title">Math helper</h1> */}
 
               <h2 className="content-subtitle">Помощник по математике</h2>
-              <h1 className="content-title">Math helper</h1>
 
               <p className="content-text">
                 Данный помощник дает возможность воспользоваться теорией и

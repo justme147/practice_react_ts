@@ -20,9 +20,9 @@ export const Header: React.FC<HeaderProps> = ({ clickHandler }) => {
         <button className="header-button" onClick={clickHandler}>
           <IconMenu />
         </button>
-        <h6 className="header-logo" onClick={() => history.push("/")}>
+        {/* <h6 className="header-logo" onClick={() => history.push("/")}>
           Math helper
-        </h6>
+        </h6> */}
         <div className="header-search">
           <div className="header-icon">
             <SearchIcon />
