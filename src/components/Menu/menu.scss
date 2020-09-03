@@ -1,0 +1,233 @@
+.menu-enter {
+  opacity: 0;
+
+  .sidebar-menu {
+    transform: translateX(-100%);
+  }
+}
+.menu-enter-active {
+  opacity: 1;
+
+  .sidebar-menu {
+    transform: translateX(0);
+    transition: transform 300ms;
+  }
+
+  transition: opacity 300ms;
+}
+.menu-exit {
+  opacity: 1;
+
+  .sidebar-menu {
+    transform: translateX(0);
+  }
+}
+.menu-exit-active {
+  opacity: 0;
+
+  .sidebar-menu {
+    transform: translateX(-100%);
+    transition: transform 300ms;
+  }
+
+  transition: opacity 300ms;
+}
+
+.sidebar {
+  height: 100%;
+
+  &-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 998;
+  }
+
+  &-menu {
+    height: 100%;
+    // max-height: 100%;
+    max-width: 320px;
+    background-color: #fff;
+    box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),
+      0px 16px 24px 2px rgba(0, 0, 0, 0.14),
+      0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      border-radius: 10px;
+      background: #eee;
+      border: 1px solid #ccc;
+
+      &-thumb {
+        border-radius: 10px;
+        background: #ddd;
+        border: 1px solid #aaa;
+
+        &:hover {
+          background-color: #ccc;
+        }
+      }
+    }
+
+    // overflow-x: hidden;
+  }
+
+  &-list {
+    // margin-top: 8px;
+    padding-top: 8px;
+    // overflow-y: scroll;
+  }
+
+  &-sublist {
+    // margin-top: 10px;
+    padding: 10px 5px 0;
+    // flex-grow: 1;
+    width: 100%;
+    // animation: submenu 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: submenu 0.3s cubic-bezier(0, 1, 1, 1);
+  }
+
+  &-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    // padding: 20px 10px;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+
+    & > svg {
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      font-size: 1.5rem;
+      margin-right: 15px;
+
+      path {
+        // fill: #151b1f;
+        fill: #aaa;
+      }
+    }
+
+    & > span {
+      color: #151b1f;
+      font-size: 1.1rem;
+      letter-spacing: 0.00938em;
+    }
+
+    &:hover {
+      // background-color: #fafafa;
+
+      & > svg > path {
+        // fill: #0091ea;
+        fill: #0ec261;
+      }
+
+      & > span {
+        // color: #0091ea;
+        color: #0ec261;
+      }
+    }
+
+    &__active {
+      background-color: #fcfcfc;
+      // box-shadow: inset 0px -2px 10px -9px rgba(0, 0, 0, 0.75),
+      //   inset 0px 2px 10px -9px rgba(0, 0, 0, 0.75);
+      & > svg > path {
+        // fill: #0091ea;
+        fill: #0ec261;
+      }
+
+      & > span {
+        // color: #0091ea;
+        color: #0ec261;
+      }
+    }
+
+    // &:active {
+    //   background-color: #f4f4f4;
+    // }
+  }
+
+  &-subitem {
+    // margin-top: 10px;
+    // border-top: 1px solid #eee;
+
+    &:first-child {
+      border-top: none;
+    }
+
+    &:hover {
+      // border-color: #0ec261;
+
+      a > span {
+        // color: #0091ea;
+        color: #0ec261;
+        text-decoration: underline;
+      }
+
+      a > svg > path {
+        // fill: #0091ea;
+        fill: #0ec261;
+      }
+    }
+
+    &:active {
+      a > span {
+        color: #0daa56;
+      }
+
+      a > svg > path {
+        fill: #0ec261;
+      }
+    }
+  }
+
+  &-link {
+    font-size: 1.05rem;
+    color: #151b1f;
+    letter-spacing: 0.00938em;
+    display: flex;
+    align-items: center;
+    padding: 7px 0;
+
+    svg {
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      font-size: 1.5rem;
+      margin-right: 11px;
+
+      path {
+        fill: #aaa;
+      }
+    }
+
+    &__active {
+      svg > path {
+        fill: #0ec261;
+        // fill: #00609c;
+      }
+
+      span {
+        color: #0ec261;
+        // color: #00609c;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@keyframes submenu {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -17,3 +17,8 @@ export interface ISliderList {
   description: string;
   url: string;
 }
+
+export interface IHelpList {
+  text: string;
+  element: string;
+}

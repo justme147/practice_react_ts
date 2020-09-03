@@ -1,26 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useHistory } from "react-router-dom";
-// import "slick-carousel/slick/slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-// import { CSSTransition } from "react-transition-group";
+import { Switch, Route } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 
-import "./mainlayout.scss";
-
+import "./main-layout.scss";
 import { Header } from "../../components/Header/Header";
-// import AutorenewIcon from "@material-ui/icons/Autorenew";
-// import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
-// import FormatLineSpacingIcon from "@material-ui/icons/FormatLineSpacing";
-// import MoreVertIcon from "@material-ui/icons/MoreVert";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { IMenuList, ISliderList, IMenuListItems } from "../../interfaces";
+import { MainPage } from "../../pages/MainPage/MainPage";
+import { Menu } from "../../components/Menu/Menu";
+import { IMenuList, IHelpList } from "../../interfaces";
+import { ErrorPage } from "../../pages/ErrorPage/ErrorPage";
 
 export const MainLayout: React.FC = () => {
-  // console.log(styles);
-
   const [menuList, setMenuList] = useState<IMenuList[]>([
     {
       id: 1,
@@ -79,6 +68,14 @@ export const MainLayout: React.FC = () => {
     },
     {
       id: 4,
+      title: "Графики",
+      url: "/charts",
+      items: [
+        { id: 1, title: "Построение графика функции", url: "/charts/plotting" },
+      ],
+    },
+    {
+      id: 5,
       title: "Другое",
       url: "/other",
       items: [
@@ -120,81 +117,23 @@ export const MainLayout: React.FC = () => {
         },
       ],
     },
-    {
-      id: 5,
-      title: "Конвертер",
-      url: "/converter",
-      items: [
-        { id: 1, title: "Базовые", url: "/converter/basic" },
-        { id: 2, title: "Специальные", url: "/converter/special" },
-        { id: 3, title: "Инженерные", url: "/converter/engineering" },
-        { id: 4, title: "Компьютерные", url: "/converter/computer" },
-      ],
-    },
-    {
-      id: 6,
-      title: "Конвертер",
-      url: "/converter",
-      items: [
-        { id: 1, title: "Базовые", url: "/converter/basic" },
-        { id: 2, title: "Специальные", url: "/converter/special" },
-        { id: 3, title: "Инженерные", url: "/converter/engineering" },
-        { id: 4, title: "Компьютерные", url: "/converter/computer" },
-      ],
-    },
   ]);
   const [isMenu, setIsMenu] = useState<boolean>(false);
-  const [sliderList, setSLiderList] = useState<ISliderList[]>([
-    {
-      id: 1,
-      title: "Конвертер, базовые",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur est sequi eligendi at, itaque fugiat accusantium esse perferendis sunt aut repudiandae atque, obcaecati animi impedit ea distinctio sit error numquam, ipsam alias sapiente voluptatibus saepe dicta eius? Corporis expedita perspiciatis excepturi quam voluptatibus in nostrum sequi placeat similique?",
-      url: "/converter/basic",
-    },
-    {
-      id: 2,
-      title: "Матрицы, произведение",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur est sequi eligendi at, itaque fugiat accusantium esse perferendis sunt aut repudiandae atque, obcaecati animi impedit ea distinctio sit error numquam, ipsam alias sapiente voluptatibus saepe dicta eius? Corporis expedita perspiciatis excepturi quam voluptatibus in nostrum sequi placeat similique?",
-      url: "/matrix/multiplication",
-    },
-    {
-      id: 3,
-      title: "Матрицы, определитель",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur est sequi eligendi at, itaque fugiat accusantium esse perferendis sunt aut repudiandae atque, obcaecati animi impedit ea distinctio sit error numquam, ipsam alias sapiente voluptatibus saepe dicta eius? Corporis expedita perspiciatis excepturi quam voluptatibus in nostrum sequi placeat similique?",
-      url: "/matrix/determinant",
-    },
-    {
-      id: 4,
-      title: "СЛАУ, метод Гаусса",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur est sequi eligendi at, itaque fugiat accusantium esse perferendis sunt aut repudiandae atque, obcaecati animi impedit ea distinctio sit error numquam, ipsam alias sapiente voluptatibus saepe dicta eius? Corporis expedita perspiciatis excepturi quam voluptatibus in nostrum sequi placeat similique?",
-      url: "/slau/gauss",
-    },
-    {
-      id: 5,
-      title: "Другое, квадратные уравнения",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur est sequi eligendi at, itaque fugiat accusantium esse perferendis sunt aut repudiandae atque, obcaecati animi impedit ea distinctio sit error numquam, ipsam alias sapiente voluptatibus saepe dicta eius? Corporis expedita perspiciatis excepturi quam voluptatibus in nostrum sequi placeat similique?",
-      url: "/other/quadratic",
-    },
-    {
-      id: 6,
-      title: "Другое, производные",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur est sequi eligendi at, itaque fugiat accusantium esse perferendis sunt aut repudiandae atque, obcaecati animi impedit ea distinctio sit error numquam, ipsam alias sapiente voluptatibus saepe dicta eius? Corporis expedita perspiciatis excepturi quam voluptatibus in nostrum sequi placeat similique?",
-      url: "/other/derivative",
-    },
-  ]);
-  const [displayChild, setDisplayChild] = useState<number>(0);
-  const history = useHistory();
+  const [isHelp, setIsHelp] = useState<boolean>(false);
+  const [helpStep, setHelpStep] = useState<number>(0);
+  const [helpStyle, setHelpStyle] = useState<React.CSSProperties>({});
+  const helpElements: IHelpList[] = [
+    { text: "qwe", element: ".slider" },
+    { text: "qwe", element: ".header-button" },
+    { text: "qwe", element: ".sidebar-menu" },
+    { text: "qwe", element: ".content-list" },
+  ];
 
   useEffect(() => {
     const listener = (e: KeyboardEvent): void => {
       if (e.key === "Escape") {
         setIsMenu(false);
+        setIsHelp(false);
       }
     };
 
@@ -205,159 +144,57 @@ export const MainLayout: React.FC = () => {
     };
   }, [isMenu]);
 
-  const windowClickHandler = (event: React.MouseEvent): void | boolean => {
-    const nav: any = document.querySelector(".sidebar-menu");
-    const target: any = event.target;
+  useEffect(() => {
+    helpElements[helpStep].element === ".sidebar-menu"
+      ? setIsMenu(true)
+      : setIsMenu(false);
 
-    if (event.target === nav || nav.contains(target)) return;
-    setIsMenu(false);
-  };
+    setTimeout(() => {
+      if (helpStep > helpElements.length - 1) {
+        setHelpStep(0);
+        setIsHelp(false);
+      }
 
-  const SliderArrow = (props: any): JSX.Element => {
-    const { className, style, onClick, type } = props;
-    return (
-      <button
-        type="button"
-        className={className}
-        style={{ ...style }}
-        onClick={onClick}
-      >
-        {type === "back" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-      </button>
-    );
-  };
+      const element: HTMLElement | null = document.querySelector(
+        `${helpElements[helpStep].element}`
+      );
 
-  const expandParentHandler = (id: number): void => {
-    setDisplayChild(id);
-  };
-
-  const showChildHandler = (nodes: IMenuListItems[]): JSX.Element => {
-    return (
-      <ul className="sidebar-sublist">
-        {nodes.map((el) => (
-          <li
-            key={el.id}
-            className="sidebar-subitem"
-            onClick={() => setIsMenu(false)}
-          >
-            <NavLink
-              to={el.url}
-              className="sidebar-link"
-              activeClassName="sidebar-link__active"
-            >
-              {/* <MoreVertIcon /> */}
-              <span>{el.title}</span>
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-    );
-  };
+      if (element) {
+        setHelpStyle({
+          height: element?.offsetHeight + "px",
+          width: element?.offsetWidth + "px",
+          top: element?.offsetTop + "px",
+          left: element?.offsetLeft + "px",
+        });
+      }
+    }, 0);
+  }, [helpStep]);
 
   return (
     <div className="container">
-      <Header clickHandler={() => setIsMenu(true)} />
+      <Header
+        clickMenuHandler={() => setIsMenu(true)}
+        clickHelpHandler={() => setIsHelp(true)}
+      />
 
-      {/* Start slider section */}
+      <Switch>
+        <Route path="/" exact render={() => <MainPage menuList={menuList} />} />
 
-      {/* <section className={styles.slider}> */}
+        <Route render={() => <ErrorPage />} />
+      </Switch>
 
-      <main className="main">
-        <div className="content">
-          <div className="content-inner">
-            <div className="content-header">
-              {/* <a className="content-logo" onClick={() => history.push("/")}>
-                Math helper
-              </a> */}
-              <h1 className="content-title">Math helper</h1>
-            </div>
-            <div className="content-body">
-              {/* <h1 className="content-title">Math helper</h1> */}
+      <Menu isMenu={isMenu} menuList={menuList} closeMenu={setIsMenu} />
 
-              <h2 className="content-subtitle">Помощник по математике</h2>
-
-              <p className="content-text">
-                Данный помощник дает возможность воспользоваться теорией и
-                калькуляторами по следующим разделам:
-              </p>
-              <ul className="content-list">
-                {menuList.map((item) => (
-                  <li className="content-item" key={item.id}>
-                    <NavLink to={item.url}>{item.title}</NavLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="content-footer">
-              <p className="content-copyright">© 2020 «Math helper»</p>
-              {/* <a href="mailto:math_helper@gmail.com" className="content-mail">
-                math_helper@gmail.com
-              </a> */}
-            </div>
+      <CSSTransition in={isHelp} timeout={300} classNames="hint" unmountOnExit>
+        <div className="help">
+          <div className="help-inner">
+            <p className="help-text" onClick={() => setHelpStep(helpStep + 1)}>
+              {helpElements[helpStep].text} Далее
+            </p>
+            <span className="help-element" style={helpStyle}></span>
           </div>
         </div>
-
-        <Slider
-          dots={true}
-          speed={1000}
-          easing="ease"
-          // autoplay={true}
-          autoplaySpeed={4000}
-          touchThreshold={10}
-          className="slider"
-          nextArrow={<SliderArrow type="next" />}
-          prevArrow={<SliderArrow type="back" />}
-        >
-          {sliderList.map((item) => (
-            <div className="slider-item" key={item.id}>
-              <div className="slider-content">
-                <h3 className="slider-title">{item.title}</h3>
-                <p className="slider-descr">{item.description}</p>
-                <button
-                  className="slider-button"
-                  onClick={() => history.push(item.url)}
-                >
-                  Подробнее
-                </button>
-              </div>
-            </div>
-          ))}
-        </Slider>
-      </main>
-
-      {/* </section> */}
-
-      {/* End slider section */}
-
-      {isMenu && (
-        <div className="sidebar-inner" onClick={(e) => windowClickHandler(e)}>
-          <div className="sidebar">
-            <div className="sidebar-menu">
-              <ul className="sidebar-list">
-                {menuList.map((item) => (
-                  <li
-                    key={item.id}
-                    className={
-                      item.id !== displayChild
-                        ? "sidebar-item"
-                        : "sidebar-item sidebar-item__active"
-                    }
-                    onClick={() => expandParentHandler(item.id)}
-                    // onMouseEnter={() => expandParentHandler(item.id)}
-                  >
-                    {/* <FormatListBulletedIcon /> */}
-                    <span>{item.title}</span>
-                    {displayChild !== item.id && <ExpandMoreIcon />}
-                    {item.id === displayChild &&
-                      item.items &&
-                      showChildHandler(item.items)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      )}
+      </CSSTransition>
     </div>
   );
 };

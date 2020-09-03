@@ -1,0 +1,159 @@
+.slider {
+  // width: 100%;
+  width: 50%;
+  height: calc(100vh - 64px);
+  // height: 100%;
+  position: relative;
+
+  &-item {
+    height: 100%;
+    background-color: #1f262b;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 90px;
+    // text-align: justify;
+    color: #fff;
+  }
+
+  &-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  &-descr {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    text-align: justify;
+    margin-top: 15px;
+  }
+
+  &-button {
+    font-size: 1.2rem;
+    // text-transform: uppercase;
+    color: #fff;
+    border: none;
+    background-color: #0ec261;
+    // background-color: #0091ea;
+    width: 160px;
+    padding: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background-color: #0a994d;
+      // background-color: #006bad;
+    }
+
+    &:active {
+      background-color: #077e3f;
+      // background-color: #00609c;
+    }
+  }
+}
+
+/* Слайдер */
+.slick-slider {
+  // width: 100%;
+  // position: relative;
+}
+
+/* Ограничивающая оболочка */
+.slick-list {
+  height: 100%;
+  overflow: hidden;
+}
+/* Лента слайдов */
+.slick-track {
+  display: flex;
+  height: 100%;
+}
+
+.slick-slide div {
+  height: 100%;
+}
+/* Стрелка */
+.slick-arrow {
+  height: 100%;
+  width: 64px;
+  position: absolute;
+  top: 0;
+  transform: none;
+  z-index: 10;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:before {
+    font-size: 0;
+  }
+
+  svg {
+    font-size: 2.5rem;
+    fill: rgba(255, 255, 255, 0.5);
+  }
+
+  &:hover {
+    background-color: rgba(14, 194, 97, 0.2);
+    // background-color: rgba(0, 145, 234, 0.2);
+
+    svg {
+      fill: #fff;
+    }
+  }
+}
+/* Стрелка влево */
+.slick-arrow.slick-prev {
+  left: 0;
+}
+/* Стрелка вправо */
+.slick-arrow.slick-next {
+  right: 0;
+}
+/* Точки (булиты) */
+.slick-dots {
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.slick-dots li {
+  // list-style: none;
+  margin: 0 2px;
+}
+/* Элемент точки */
+.slick-dots li button:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  // display: block;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  // font-size: 8px;
+  // color: #fff;
+  opacity: 0.5;
+  // width: 8px;
+  // height: 8px;
+  // background-color: $light_gray;
+  // border-radius: 50%;
+  // margin: 0 4px;
+}
+/* Активная точка */
+.slick-dots li.slick-active button:before {
+  // background-color: #0091ea;
+  background-color: #0ec261;
+}

@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/practice_react_ts/build/static/css/main.4ccc0662.chunk.css",
-    "main.js": "/practice_react_ts/build/static/js/main.7bd438c9.chunk.js",
-    "main.js.map": "/practice_react_ts/build/static/js/main.7bd438c9.chunk.js.map",
+    "main.css": "/practice_react_ts/build/static/css/main.83216278.chunk.css",
+    "main.js": "/practice_react_ts/build/static/js/main.37d9ce44.chunk.js",
+    "main.js.map": "/practice_react_ts/build/static/js/main.37d9ce44.chunk.js.map",
     "runtime-main.js": "/practice_react_ts/build/static/js/runtime-main.f306e2af.js",
     "runtime-main.js.map": "/practice_react_ts/build/static/js/runtime-main.f306e2af.js.map",
-    "static/css/2.341c7718.chunk.css": "/practice_react_ts/build/static/css/2.341c7718.chunk.css",
-    "static/js/2.97ec0c11.chunk.js": "/practice_react_ts/build/static/js/2.97ec0c11.chunk.js",
-    "static/js/2.97ec0c11.chunk.js.map": "/practice_react_ts/build/static/js/2.97ec0c11.chunk.js.map",
+    "static/css/2.399cb19f.chunk.css": "/practice_react_ts/build/static/css/2.399cb19f.chunk.css",
+    "static/js/2.de2d9764.chunk.js": "/practice_react_ts/build/static/js/2.de2d9764.chunk.js",
+    "static/js/2.de2d9764.chunk.js.map": "/practice_react_ts/build/static/js/2.de2d9764.chunk.js.map",
     "index.html": "/practice_react_ts/build/index.html",
-    "precache-manifest.8efc145511ed3a915c08740dfaa58773.js": "/practice_react_ts/build/precache-manifest.8efc145511ed3a915c08740dfaa58773.js",
+    "precache-manifest.deaa3739c0ff3684b48b12adc8c25611.js": "/practice_react_ts/build/precache-manifest.deaa3739c0ff3684b48b12adc8c25611.js",
     "service-worker.js": "/practice_react_ts/build/service-worker.js",
-    "static/css/2.341c7718.chunk.css.map": "/practice_react_ts/build/static/css/2.341c7718.chunk.css.map",
-    "static/css/main.4ccc0662.chunk.css.map": "/practice_react_ts/build/static/css/main.4ccc0662.chunk.css.map",
-    "static/js/2.97ec0c11.chunk.js.LICENSE.txt": "/practice_react_ts/build/static/js/2.97ec0c11.chunk.js.LICENSE.txt",
+    "static/css/2.399cb19f.chunk.css.map": "/practice_react_ts/build/static/css/2.399cb19f.chunk.css.map",
+    "static/css/main.83216278.chunk.css.map": "/practice_react_ts/build/static/css/main.83216278.chunk.css.map",
+    "static/js/2.de2d9764.chunk.js.LICENSE.txt": "/practice_react_ts/build/static/js/2.de2d9764.chunk.js.LICENSE.txt",
     "static/media/slick-theme.css": "/practice_react_ts/build/static/media/slick.f97e3bbf.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.f306e2af.js",
-    "static/css/2.341c7718.chunk.css",
-    "static/js/2.97ec0c11.chunk.js",
-    "static/css/main.4ccc0662.chunk.css",
-    "static/js/main.7bd438c9.chunk.js"
+    "static/css/2.399cb19f.chunk.css",
+    "static/js/2.de2d9764.chunk.js",
+    "static/css/main.83216278.chunk.css",
+    "static/js/main.37d9ce44.chunk.js"
   ]
 }
