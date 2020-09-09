@@ -16,10 +16,10 @@ export const Menu: React.FC<MenuProps> = ({ isMenu, menuList, closeMenu }) => {
   const [displayChild, setDisplayChild] = useState<number>(0);
 
   const windowClickHandler = (event: React.MouseEvent): void | boolean => {
-    const nav: any = document.querySelector(".sidebar-menu");
+    const nav: HTMLElement | null = document.querySelector(".sidebar-menu");
     const target: any = event.target;
 
-    if (event.target === nav || nav.contains(target)) return;
+    if (event.target === nav || nav!.contains(target)) return;
     closeMenu(false);
   };
 

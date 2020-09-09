@@ -16,7 +16,43 @@
 
   &-title {
     // font-size: 4rem;
-    font-size: 64px;
+    font-size: 75px;
+    font-weight: 500;
+    line-height: 70px;
+    color: #0ec261;
     margin: 0;
+  }
+
+  &-subtitle {
+    font-size: 50px;
+    color: #1f262b;
+    margin-top: 15px;
+  }
+
+  &-text {
+    font-size: 20px;
+    color: #777;
+    font-weight: 300;
+    margin-top: 15px;
+  }
+
+  &-btn {
+    width: 150px;
+    padding: 10px 0;
+    color: #fff;
+    background-color: #0ec261;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 35px;
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background-color: #0a994d;
+    }
+
+    &:active {
+      background-color: #077e3f;
+    }
   }
 }

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
+import { Switch, Route, useLocation } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import "./main-layout.scss";
 import { Header } from "../../components/Header/Header";
 import { MainPage } from "../../pages/MainPage/MainPage";
 import { Menu } from "../../components/Menu/Menu";
-import { IMenuList, IHelpList } from "../../interfaces";
+import { IMenuList, IHelpList, IRoutesList } from "../../interfaces";
 import { ErrorPage } from "../../pages/ErrorPage/ErrorPage";
 
 export const MainLayout: React.FC = () => {
@@ -123,11 +123,39 @@ export const MainLayout: React.FC = () => {
   const [helpStep, setHelpStep] = useState<number>(0);
   const [helpStyle, setHelpStyle] = useState<React.CSSProperties>({});
   const helpElements: IHelpList[] = [
-    { text: "qwe", element: ".slider" },
-    { text: "qwe", element: ".header-button" },
-    { text: "qwe", element: ".sidebar-menu" },
-    { text: "qwe", element: ".content-list" },
+    { text: "qwe0", element: ".slider" },
+    { text: "qwe1", element: ".header-button" },
+    { text: "qwe2", element: ".sidebar-menu" },
+    { text: "qwe3", element: ".content-list" },
   ];
+  const routes: IRoutesList[] = [
+    {
+      path: "/",
+      component: <MainPage menuList={menuList} />,
+    },
+    {
+      path: "/converter",
+      component: <MainPage menuList={menuList} />,
+    },
+    {
+      path: "/matrix",
+      component: <MainPage menuList={menuList} />,
+    },
+    {
+      path: "/slau",
+      component: <MainPage menuList={menuList} />,
+    },
+    {
+      path: "/charts",
+      component: <MainPage menuList={menuList} />,
+    },
+    {
+      path: "/other",
+      component: <MainPage menuList={menuList} />,
+    },
+    { path: "*", component: <ErrorPage /> },
+  ];
+  const location = useLocation();
 
   useEffect(() => {
     const listener = (e: KeyboardEvent): void => {
@@ -150,11 +178,6 @@ export const MainLayout: React.FC = () => {
       : setIsMenu(false);
 
     setTimeout(() => {
-      if (helpStep > helpElements.length - 1) {
-        setHelpStep(0);
-        setIsHelp(false);
-      }
-
       const element: HTMLElement | null = document.querySelector(
         `${helpElements[helpStep].element}`
       );
@@ -170,26 +193,48 @@ export const MainLayout: React.FC = () => {
     }, 0);
   }, [helpStep]);
 
+  const helpStepHandler = (): void | undefined => {
+    if (helpStep >= helpElements.length - 1) {
+      setIsHelp(false);
+      return;
+    }
+    setHelpStep(helpStep + 1);
+  };
+
   return (
     <div className="container">
       <Header
         clickMenuHandler={() => setIsMenu(true)}
         clickHelpHandler={() => setIsHelp(true)}
+        setHelpStepHandler={() => setHelpStep(0)}
       />
 
-      <Switch>
-        <Route path="/" exact render={() => <MainPage menuList={menuList} />} />
+      {/* <TransitionGroup> */}
+      {/* <CSSTransition key={location.key} classNames="fade" timeout={300}> */}
+      <Switch location={location}>
+        {/* <Route path="/" exact render={() => <MainPage menuList={menuList} />} />
 
-        <Route render={() => <ErrorPage />} />
+        <Route render={() => <ErrorPage />} /> */}
+        {routes.map((page) => (
+          <Route
+            key={page.path}
+            exact
+            path={page.path}
+            render={() => page.component}
+          />
+        ))}
       </Switch>
+      {/* </CSSTransition> */}
+      {/* </TransitionGroup> */}
 
       <Menu isMenu={isMenu} menuList={menuList} closeMenu={setIsMenu} />
 
       <CSSTransition in={isHelp} timeout={300} classNames="hint" unmountOnExit>
         <div className="help">
           <div className="help-inner">
-            <p className="help-text" onClick={() => setHelpStep(helpStep + 1)}>
-              {helpElements[helpStep].text} Далее
+            <p className="help-text" onClick={() => helpStepHandler()}>
+              {helpElements[helpStep].text}
+              Далее
             </p>
             <span className="help-element" style={helpStyle}></span>
           </div>

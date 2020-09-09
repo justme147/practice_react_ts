@@ -10,11 +10,13 @@ import HelpOutlineOutlinedIcon from "@material-ui/icons/HelpOutlineOutlined";
 type HeaderProps = {
   clickMenuHandler: () => void;
   clickHelpHandler: () => void;
+  setHelpStepHandler: () => void;
 };
 
 export const Header: React.FC<HeaderProps> = ({
   clickMenuHandler,
   clickHelpHandler,
+  setHelpStepHandler,
 }) => {
   const history = useHistory();
   const location = useLocation();
@@ -31,6 +33,11 @@ export const Header: React.FC<HeaderProps> = ({
     setShowTitle(true);
   }, [location]);
 
+  const helpClick = (): void => {
+    clickHelpHandler();
+    setHelpStepHandler();
+  };
+
   return (
     <header className="header">
       <div className="header-inner">
@@ -39,7 +46,11 @@ export const Header: React.FC<HeaderProps> = ({
             <IconMenu />
           </button>
           {showTitle && (
-            <h6 className="header-logo" onClick={() => history.push("/")}>
+            <h6
+              className="header-logo"
+              onClick={() => history.push("/")}
+              title="На главную"
+            >
               Math helper
             </h6>
           )}
@@ -55,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
           <button
             className="header-button header-button__margin"
-            onClick={clickHelpHandler}
+            onClick={() => helpClick()}
           >
             <HelpOutlineOutlinedIcon />
           </button>

@@ -22,3 +22,8 @@ export interface IHelpList {
   text: string;
   element: string;
 }
+
+export interface IRoutesList {
+  path?: string;
+  component: JSX.Element;
+}
