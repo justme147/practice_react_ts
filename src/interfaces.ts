@@ -27,3 +27,9 @@ export interface IRoutesList {
   path?: string;
   component: JSX.Element;
 }
+
+export interface INavList {
+  id: number;
+  title: string;
+  url: string;
+}

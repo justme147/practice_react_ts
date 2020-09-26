@@ -76,7 +76,7 @@ export const SLider: React.FC = () => {
       dots={true}
       speed={1000}
       easing="ease"
-      // autoplay={true}
+      autoplay={true}
       autoplaySpeed={4000}
       touchThreshold={10}
       className="slider"

@@ -1,0 +1,135 @@
+.header {
+  background-color: #0ec261;
+  // background-color: #0091ea;
+  // background-color: #151b1f;
+  // box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+  //   0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  min-height: 64px;
+  // flex-grow: 1;
+  // flex-shrink: 0;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  background: none;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  // border-radius: 50%;
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+
+  svg {
+    width: 24px;
+    height: 24px;
+
+    path {
+      fill: #fff;
+    }
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &:active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &__margin {
+    margin: 0 0 0 1rem;
+  }
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+  flex-grow: 1;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.right {
+  display: flex;
+  // flex-grow: 1;
+  align-items: center;
+  // justify-content: flex-end;
+}
+
+.search {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  position: relative;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.icon {
+  height: 100%;
+  display: flex;
+  padding: 0px 16px;
+  position: absolute;
+  align-items: center;
+  // pointer-events: none;
+  justify-content: center;
+
+  svg {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    font-size: 1.5rem;
+
+    path {
+      fill: #fff;
+    }
+  }
+}
+
+.input {
+  font-size: 1rem;
+  display: inline-flex;
+  position: relative;
+  box-sizing: border-box;
+  align-items: center;
+  font-weight: 400;
+  line-height: 1.1876em;
+  letter-spacing: 0.00938em;
+
+  input {
+    padding: 8px 8px 8px 0;
+    padding-left: 48px;
+    color: #fff;
+    background: none;
+    border: none;
+    width: 12ch;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:focus {
+      width: 20ch;
+      // flex-grow: 1;
+    }
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
+import classNames from "classnames";
 
-import "./header.scss";
-
+import styles from "./header.module.scss";
 import IconMenu from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import HelpOutlineOutlinedIcon from "@material-ui/icons/HelpOutlineOutlined";
@@ -39,15 +39,15 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="header">
-      <div className="header-inner">
-        <div className="header-left">
-          <button className="header-button" onClick={clickMenuHandler}>
+    <header className={styles.header}>
+      <div className={styles.inner}>
+        <div className={styles.left}>
+          <button className={styles.button} onClick={clickMenuHandler}>
             <IconMenu />
           </button>
           {showTitle && (
             <h6
-              className="header-logo"
+              className={styles.logo}
               onClick={() => history.push("/")}
               title="На главную"
             >
@@ -55,17 +55,17 @@ export const Header: React.FC<HeaderProps> = ({
             </h6>
           )}
         </div>
-        <div className="header-right">
-          <div className="header-search">
-            <div className="header-icon">
+        <div className={styles.right}>
+          <div className={styles.search}>
+            <div className={styles.icon}>
               <SearchIcon />
             </div>
-            <div className="header-input">
+            <div className={styles.input}>
               <input type="text" placeholder="Поиск..." />
             </div>
           </div>
           <button
-            className="header-button header-button__margin"
+            className={classNames(styles.button, styles["button__margin"])}
             onClick={() => helpClick()}
           >
             <HelpOutlineOutlinedIcon />

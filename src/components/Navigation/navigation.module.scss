@@ -1,0 +1,35 @@
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+
+  a {
+    color: #777;
+
+    &:hover {
+      color: #0ec261;
+    }
+
+    &:active {
+      color: #0faa57;
+    }
+  }
+
+  & path {
+    fill: #777;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    a {
+      color: #0ec261;
+    }
+  }
+}

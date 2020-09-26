@@ -8,6 +8,7 @@ import { MainPage } from "../../pages/MainPage/MainPage";
 import { Menu } from "../../components/Menu/Menu";
 import { IMenuList, IHelpList, IRoutesList } from "../../interfaces";
 import { ErrorPage } from "../../pages/ErrorPage/ErrorPage";
+import { ConverterBasicPage } from "../../pages/ConverterBasicPage/ConverterBasicPage";
 
 export const MainLayout: React.FC = () => {
   const [menuList, setMenuList] = useState<IMenuList[]>([
@@ -138,6 +139,16 @@ export const MainLayout: React.FC = () => {
       component: <MainPage menuList={menuList} />,
     },
     {
+      path: "/converter/basic",
+      component: <ConverterBasicPage navigation={["Конвертер", "Базовые"]} />,
+    },
+    {
+      path: "/converter/special",
+      component: (
+        <ConverterBasicPage navigation={["Конвертер", "Специальные"]} />
+      ),
+    },
+    {
       path: "/matrix",
       component: <MainPage menuList={menuList} />,
     },
@@ -153,9 +164,9 @@ export const MainLayout: React.FC = () => {
       path: "/other",
       component: <MainPage menuList={menuList} />,
     },
-    { path: "*", component: <ErrorPage /> },
+    { path: "", component: <ErrorPage /> },
   ];
-  const location = useLocation();
+  // const location = useLocation();
 
   useEffect(() => {
     const listener = (e: KeyboardEvent): void => {
@@ -209,9 +220,7 @@ export const MainLayout: React.FC = () => {
         setHelpStepHandler={() => setHelpStep(0)}
       />
 
-      {/* <TransitionGroup> */}
-      {/* <CSSTransition key={location.key} classNames="fade" timeout={300}> */}
-      <Switch location={location}>
+      <Switch>
         {/* <Route path="/" exact render={() => <MainPage menuList={menuList} />} />
 
         <Route render={() => <ErrorPage />} /> */}
@@ -224,8 +233,6 @@ export const MainLayout: React.FC = () => {
           />
         ))}
       </Switch>
-      {/* </CSSTransition> */}
-      {/* </TransitionGroup> */}
 
       <Menu isMenu={isMenu} menuList={menuList} closeMenu={setIsMenu} />
 

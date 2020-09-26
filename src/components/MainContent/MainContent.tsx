@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
 import { IMenuList, IMenuListItems } from "../../interfaces";
-import "./main-content.scss";
+import styles from "./main-content.module.scss";
 
 type MainContentProps = {
   menuList: IMenuList[];
@@ -25,22 +25,22 @@ export const MainContent: React.FC<MainContentProps> = ({
   }, []);
 
   return (
-    <div className="content">
-      <div className="content-inner">
-        <div className="content-header">
-          <h1 className="content-title">Math helper</h1>
+    <div className={styles.content}>
+      <div className={styles.inner}>
+        <div className={styles.header}>
+          <h1 className={styles.title}>Math helper</h1>
         </div>
         {!page && (
-          <div className="content-body">
-            <h2 className="content-subtitle">Помощник по математике</h2>
+          <div className={styles.body}>
+            <h2 className={styles.subtitle}>Помощник по математике</h2>
 
-            <p className="content-text">
+            <p className={styles.text}>
               Данный помощник дает возможность воспользоваться теорией и
               калькуляторами по следующим разделам:
             </p>
-            <ul className="content-list">
+            <ul className={styles.list}>
               {menuList.map((item) => (
-                <li className="content-item" key={item.id}>
+                <li className={styles.item} key={item.id}>
                   <NavLink to={item.url}>{item.title}</NavLink>
                 </li>
               ))}
@@ -48,24 +48,24 @@ export const MainContent: React.FC<MainContentProps> = ({
           </div>
         )}
         {page && (
-          <div className="content-body">
-            <p className="content-text">
+          <div className={styles.body}>
+            <p className={styles.text}>
               Для удобства каждый раздел разделен на подразделы. В разделе{" "}
               <span>{page.title}</span> их {page.items.length}. В каждом
               подразделе имеется теория(если в ней есть необходимость) и
               калькулятор:
             </p>
-            <ul className="content-list">
+            <ul className={styles.list}>
               {page.items.map((item) => (
-                <li className="content-item" key={item.id}>
+                <li className={styles.item} key={item.id}>
                   <NavLink to={item.url}>{item.title}</NavLink>
                 </li>
               ))}
             </ul>
           </div>
         )}
-        <div className="content-footer">
-          <p className="content-copyright">© 2020 «Math helper»</p>
+        <div className={styles.footer}>
+          <p className={styles.copyright}>© 2020 «Math helper»</p>
         </div>
       </div>
     </div>
