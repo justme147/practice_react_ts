@@ -1,0 +1,27 @@
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.select {
+  width: 100%;
+
+  &__width {
+    width: 40%;
+  }
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.label {
+  width: 40%;
+}
+
+.input {
+  width: 100%;
+}

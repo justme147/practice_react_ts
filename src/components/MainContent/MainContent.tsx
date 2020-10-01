@@ -52,8 +52,7 @@ export const MainContent: React.FC<MainContentProps> = ({
             <p className={styles.text}>
               Для удобства каждый раздел разделен на подразделы. В разделе{" "}
               <span>{page.title}</span> их {page.items.length}. В каждом
-              подразделе имеется теория(если в ней есть необходимость) и
-              калькулятор:
+              подразделе имеется теория и калькулятор:
             </p>
             <ul className={styles.list}>
               {page.items.map((item) => (

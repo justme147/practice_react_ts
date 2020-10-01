@@ -1,38 +1,73 @@
 import React, { useState } from "react";
+import { IMeasurementsChildList } from "../../interfaces";
 
 import styles from "./converter.module.scss";
+import stylesPage from "../../pages/ConverterBasicPage/converter-basic-page.module.scss";
+import SwapHorizIcon from "@material-ui/icons/SwapHoriz";
 
-type ConverterProps = {};
+type ConverterProps = {
+  measurements: IMeasurementsChildList[]; //Исправить
+};
 
-interface IMeasurementsList {
-  id: number;
-  title: string;
-  childs: IMeasurementsChildList[];
-}
+export const Converter: React.FC<ConverterProps> = ({ measurements }) => {
+  const [category, setCategory] = useState<string>("1");
+  const [valueFrom, setValueFrom] = useState<string>("2");
+  const [valueTo, setValueTo] = useState<string>("3");
 
-interface IMeasurementsChildList {
-  id: number;
-  title: string;
-}
-
-export const Converter: React.FC<ConverterProps> = () => {
-  const [measurements, setMeasurements] = useState<IMeasurementsList[]>([
-    {
-      id: 1,
-      title: "Базовые",
-      childs: [
-        { id: 1, title: "Масса" },
-        { id: 2, title: "Длина" },
-        { id: 3, title: "Объем" },
-        { id: 4, title: "Площадь" },
-        { id: 5, title: "Скорость" },
-        { id: 6, title: "Температура" },
-      ],
-    },
-    { id: 2, title: "Специальные", childs: [] },
-    { id: 3, title: "", childs: [] },
-    { id: 4, title: "", childs: [] },
-  ]);
-
-  return <div></div>;
+  return (
+    <div className={stylesPage.page}>
+      <div className={styles.container}>
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className={styles.select}
+        >
+          {measurements?.map((item) => (
+            <option value={item.id} key={item.id}>
+              {item.title}
+            </option>
+          ))}
+        </select>
+        <div className={styles.group}>
+          <select
+            value={valueFrom}
+            onChange={(e) => setValueFrom(e.target.value)}
+            className={styles["select__width"]}
+          >
+            {measurements[+category - 1].values.map((item) => (
+              <option value={item.id} key={item.id}>
+                {item.title}
+              </option>
+            ))}
+          </select>
+          <SwapHorizIcon />
+          <select
+            value={valueTo}
+            onChange={(e) => setValueTo(e.target.value)}
+            className={styles["select__width"]}
+          >
+            {measurements[+category - 1].values.map((item) => (
+              <option value={item.id} key={item.id}>
+                {item.title}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className={styles.group}>
+          <label className={styles.label}>
+            kol-vo
+            <input type="text" className={styles.input} />
+          </label>
+          <label className={styles.label}>
+            res
+            <input type="text" className={styles.input} readOnly />
+          </label>
+        </div>
+        <div className={styles.group}>
+          <button>ochistit'</button>
+          <button>result</button>
+        </div>
+      </div>
+    </div>
+  );
 };

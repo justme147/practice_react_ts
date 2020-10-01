@@ -5,6 +5,8 @@ import classNames from "classnames/bind";
 import styles from "./converter-basic-page.module.scss";
 import { useHistory, useLocation } from "react-router-dom";
 import { Navigation } from "../../components/Navigation/Navigation";
+import { IMeasurementsChildList, IMeasurementsList } from "../../interfaces";
+import { Converter } from "../../components/Converter/Converter";
 
 type ConverterBasicPageProps = {
   navigation: string[];
@@ -16,6 +18,111 @@ export const ConverterBasicPage: React.FC<ConverterBasicPageProps> = ({
   navigation,
 }) => {
   const [isTheory, setIsTheory] = useState<boolean>(true);
+  const [measurements, setMeasurements] = useState<IMeasurementsList[]>([
+    {
+      title: "Базовые",
+      childs: [
+        {
+          id: 1,
+          title: "Масса",
+          values: [
+            { id: 1, title: "Килотонна", value: 2 },
+            { id: 2, title: "Тонна", value: 2 },
+            { id: 3, title: "Центнер", value: 2 },
+            { id: 4, title: "Килограмм", value: 2 },
+            { id: 5, title: "Грамм", value: 2 },
+            { id: 6, title: "Милиграмм", value: 2 },
+            { id: 7, title: "Фунт", value: 2 },
+            { id: 8, title: "Унция", value: 2 },
+          ],
+        },
+        {
+          id: 2,
+          title: "Длина",
+          values: [
+            { id: 1, title: "Километр", value: 2 },
+            { id: 2, title: "Метр", value: 2 },
+            { id: 3, title: "Дециметр", value: 2 },
+            { id: 4, title: "Сантиметр", value: 2 },
+            { id: 5, title: "Миллиметр", value: 2 },
+            { id: 6, title: "Микрометр", value: 2 },
+            { id: 7, title: "Нанометр", value: 2 },
+            { id: 8, title: "Миля", value: 2 },
+            { id: 9, title: "Ярд", value: 2 },
+            { id: 10, title: "Фут", value: 2 },
+            { id: 11, title: "Дюйм", value: 2 },
+          ],
+        },
+        {
+          id: 3,
+          title: "Объем",
+          values: [
+            { id: 1, title: "Кубический километр", value: 2 },
+            { id: 2, title: "Кубический метр", value: 2 },
+            { id: 3, title: "Кубический дециметр", value: 2 },
+            { id: 4, title: "Кубический сантиметр", value: 2 },
+            { id: 5, title: "Кубический миллиметр", value: 2 },
+            { id: 6, title: "Литр", value: 2 },
+            { id: 7, title: "Децилитр", value: 2 },
+            { id: 8, title: "Сантилитр", value: 2 },
+            { id: 9, title: "Миллилитр", value: 2 },
+            { id: 10, title: "Микролитр", value: 2 },
+            { id: 11, title: "Баррель", value: 2 },
+            { id: 12, title: "Галлон", value: 2 },
+            { id: 13, title: "Жидкая унция", value: 2 },
+          ],
+        },
+        {
+          id: 4,
+          title: "Площадь",
+          values: [
+            { id: 1, title: "Квадрвтный километр", value: 2 },
+            { id: 2, title: "Квадратный метр", value: 2 },
+            { id: 3, title: "Квадратный дециметр", value: 2 },
+            { id: 4, title: "Квадратный сантиметр", value: 2 },
+            { id: 5, title: "Квадратный миллиметр", value: 2 },
+            { id: 6, title: "Гектар", value: 2 },
+            { id: 7, title: "Ар(Сотка)", value: 2 },
+            { id: 8, title: "Квадратная миля", value: 2 },
+            { id: 9, title: "Квадратный ярд", value: 2 },
+            { id: 10, title: "Квадратный фут", value: 2 },
+            { id: 11, title: "Квадратный дюйм", value: 2 },
+          ],
+        },
+        {
+          id: 5,
+          title: "Скорость",
+          values: [
+            { id: 1, title: "Километр в секунду", value: 2 },
+            { id: 2, title: "Миля в секунду", value: 2 },
+            { id: 3, title: "Метр в секунду", value: 2 },
+            { id: 4, title: "Километр в минуту", value: 2 },
+            { id: 5, title: "Миля в минуту", value: 2 },
+            { id: 6, title: "Метр в минуту", value: 2 },
+            { id: 7, title: "Километр в час", value: 2 },
+            { id: 8, title: "Миля в час", value: 2 },
+            { id: 9, title: "Метр в час", value: 2 },
+          ],
+        },
+        {
+          id: 6,
+          title: "Температура",
+          values: [
+            { id: 1, title: "Градус Цельсия", value: 2 },
+            { id: 2, title: "Градус Фаренгейта", value: 2 },
+            { id: 3, title: "Градус Кельвина", value: 2 },
+            { id: 4, title: "Градус Реомюра", value: 2 },
+          ],
+        },
+      ],
+    },
+    { title: "Специальные", childs: [] },
+    { title: "", childs: [] },
+    { title: "", childs: [] },
+  ]);
+  const [currentMeasurement, setCurrentMeasurement] = useState<
+    IMeasurementsChildList[]
+  >([]);
   const history = useHistory();
   const location = useLocation();
 
@@ -24,6 +131,11 @@ export const ConverterBasicPage: React.FC<ConverterBasicPageProps> = ({
 
   useEffect(() => {
     document.title = `${navigation[0]} | ${navigation[1]}`;
+    const newMeasurements = measurements.filter(
+      (item) => item.title === navigation[1]
+    );
+    // console.log(newMeasurements);
+    setCurrentMeasurement(newMeasurements[0].childs);
   }, []);
 
   return (
@@ -107,7 +219,7 @@ export const ConverterBasicPage: React.FC<ConverterBasicPageProps> = ({
             exitActive: styles["page-exit-active"],
           }}
         >
-          <p className={styles.page}>Калькулятор</p>
+          <Converter measurements={currentMeasurement} />
         </CSSTransition>
       </div>
     </div>

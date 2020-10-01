@@ -33,3 +33,20 @@ export interface INavList {
   title: string;
   url: string;
 }
+
+export interface IMeasurementsList {
+  title: string;
+  childs: IMeasurementsChildList[];
+}
+
+export interface IMeasurementsChildList {
+  id: number;
+  title: string;
+  values: IMeasurementsChildValuesList[];
+}
+
+export interface IMeasurementsChildValuesList {
+  id: number;
+  title: string;
+  value: number;
+}
