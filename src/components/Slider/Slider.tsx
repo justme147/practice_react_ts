@@ -8,6 +8,7 @@ import { ISliderList } from "../../interfaces";
 import "./slider.scss";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { Button } from "../Button/Button";
 
 export const SLider: React.FC = () => {
   const [sliderList, setSLiderList] = useState<ISliderList[]>([
@@ -88,12 +89,11 @@ export const SLider: React.FC = () => {
           <div className="slider-content">
             <h3 className="slider-title">{item.title}</h3>
             <p className="slider-descr">{item.description}</p>
-            <button
-              className="slider-button"
-              onClick={() => history.push(item.url)}
-            >
-              Подробнее
-            </button>
+            <Button
+              text="Подробнее"
+              buttonClickHandler={() => history.push(item.url)}
+              margin
+            />
           </div>
         </div>
       ))}

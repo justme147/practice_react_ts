@@ -35,30 +35,30 @@
     margin-top: 15px;
   }
 
-  &-button {
-    font-size: 1.2rem;
-    // text-transform: uppercase;
-    color: #fff;
-    border: none;
-    background-color: #0ec261;
-    // background-color: #0091ea;
-    width: 160px;
-    padding: 10px 0;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 25px;
-    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  // &-button {
+  //   font-size: 1.2rem;
+  //   // text-transform: uppercase;
+  //   color: #fff;
+  //   border: none;
+  //   background-color: #0ec261;
+  //   // background-color: #0091ea;
+  //   width: 160px;
+  //   padding: 10px 0;
+  //   border-radius: 4px;
+  //   cursor: pointer;
+  //   margin-top: 25px;
+  //   transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
-    &:hover {
-      background-color: #0a994d;
-      // background-color: #006bad;
-    }
+  //   &:hover {
+  //     background-color: #0a994d;
+  //     // background-color: #006bad;
+  //   }
 
-    &:active {
-      background-color: #077e3f;
-      // background-color: #00609c;
-    }
-  }
+  //   &:active {
+  //     background-color: #077e3f;
+  //     // background-color: #00609c;
+  //   }
+  // }
 }
 
 /* Слайдер */

@@ -4,11 +4,13 @@
 }
 
 .title {
+  color: #1f262b;
 }
 
 .btn {
   background: none;
-  border: 1px solid #888;
+  border: 1px solid #0ec261;
+  color: #0ec261;
   padding: 10px 0;
   width: 150px;
   border-bottom: none;
@@ -28,11 +30,14 @@
   }
 
   &:hover {
+    color: #fff;
     background-color: #0ec261;
   }
 
   &__active {
+    color: #fff;
     background-color: #0ec261;
+    // border-color: #fff;
   }
 }
 
@@ -47,7 +52,7 @@
   left: 0;
   // padding: 20px 20px 0 0;
   padding: 20px 0;
-  border-top: 1px solid #888;
+  border-top: 1px solid #0ec261;
   box-sizing: border-box;
 
   &-enter {
