@@ -14,6 +14,7 @@ type TextInputProps = {
   inputChangeHandler?: (e: any) => void;
   inputFocusHandler?: () => void;
   inputBlurHandler?: () => void;
+  error?: string;
 };
 
 export const TextInput: React.FC<TextInputProps> = ({
@@ -25,6 +26,7 @@ export const TextInput: React.FC<TextInputProps> = ({
   inputChangeHandler,
   inputFocusHandler,
   inputBlurHandler,
+  error,
 }) => {
   return (
     <label
@@ -32,9 +34,10 @@ export const TextInput: React.FC<TextInputProps> = ({
         label: true,
         label__width: width,
         active: inputFocus || inputValue,
+        error: error,
       })}
     >
-      <span>{inputPlaceholder}</span>
+      <span className={styles.placeholder}>{inputPlaceholder}</span>
       <input
         type="text"
         className={styles.input}
@@ -44,6 +47,7 @@ export const TextInput: React.FC<TextInputProps> = ({
         onBlur={inputBlurHandler}
         readOnly={inputReadOnly}
       />
+      {error && <span className={styles.alert}>{error}</span>}
     </label>
   );
 };

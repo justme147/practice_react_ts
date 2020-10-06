@@ -2,20 +2,8 @@
   width: 100%;
   position: relative;
 
-  & span {
-    font-size: 14px;
-    font-weight: 300;
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: #aaa;
-    cursor: text;
-    transition: all 0.2s ease-in-out;
-  }
-
   &.active {
-    & span {
+    .placeholder {
       top: -20px;
       left: 0;
       transform: translateY(0);
@@ -23,9 +11,43 @@
     }
   }
 
+  &.error {
+    .placeholder {
+      color: #c4183c;
+    }
+
+    .input {
+      border-color: #c4183c;
+      color: #c4183c;
+    }
+  }
+
   &__width {
     width: 45%;
   }
+}
+
+.placeholder {
+  font-size: 14px;
+  font-weight: 300;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #aaa;
+  cursor: text;
+  transition: all 0.2s ease-in-out;
+}
+
+.alert {
+  font-size: 14px;
+  font-weight: 300;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  color: #c4183c;
+  // cursor: text;
+  transition: all 0.2s ease-in-out;
 }
 
 .input {

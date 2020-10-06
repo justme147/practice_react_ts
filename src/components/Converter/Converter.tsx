@@ -20,9 +20,15 @@ export const Converter: React.FC<ConverterProps> = ({ measurements }) => {
   const [fromId, setFromId] = useState<number>(2);
   const [toId, setToId] = useState<number>(3);
   const [isFocusCount, setIsFocusCount] = useState<boolean>(false);
-  const [isFocusResult, setIsFocusResult] = useState<boolean>(false);
   const [count, setCount] = useState<string>("");
   const [result, setResult] = useState<string>("");
+  const [error, setError] = useState<string>("");
+
+  const changeCountHandler = (count: string): void => {
+    const newCount: string = count.replace(",", ".");
+
+    setCount(newCount);
+  };
 
   const swapClickHandler = (): void => {
     const from: number = fromId;
@@ -32,9 +38,25 @@ export const Converter: React.FC<ConverterProps> = ({ measurements }) => {
     setToId(from);
   };
 
+  const buttonResultHandler = (): void => {
+    if (isNaN(+count)) {
+      setError("Введено не число");
+      return;
+    }
+
+    setError("");
+    const fromValue: number =
+      measurements[categoryId - 1].values[fromId - 1].value;
+    const toValue: number = measurements[categoryId - 1].values[toId - 1].value;
+    const newResult: number = (toValue * +count) / fromValue;
+
+    setResult(`${newResult}`);
+  };
+
   const buttonResetHandler = (): void => {
     setCount("");
     setResult("");
+    setError("");
   };
 
   return (
@@ -71,24 +93,23 @@ export const Converter: React.FC<ConverterProps> = ({ measurements }) => {
             inputValue={count}
             inputPlaceholder="Введите значение"
             inputFocus={isFocusCount}
-            inputChangeHandler={(value) => setCount(value)}
+            inputChangeHandler={(value) => changeCountHandler(value)}
             inputFocusHandler={() => setIsFocusCount(true)}
             inputBlurHandler={() => setIsFocusCount(false)}
             width
+            error={error}
           />
           <TextInput
             inputValue={result}
             inputPlaceholder="Результат"
             inputReadOnly
             width
+            error={error}
           />
         </div>
         <div className={styles.group}>
           <Button text="Очистить" buttonClickHandler={buttonResetHandler} />
-          <Button
-            text="Рассчитать"
-            buttonClickHandler={() => setResult(count)}
-          />
+          <Button text="Рассчитать" buttonClickHandler={buttonResultHandler} />
         </div>
       </div>
     </div>
