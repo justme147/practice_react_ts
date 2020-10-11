@@ -18,7 +18,7 @@ export const MainLayout: React.FC = () => {
       url: "/converter",
       items: [
         { id: 1, title: "Базовые", url: "/converter/basic" },
-        { id: 2, title: "Специальные", url: "/converter/special" },
+        // { id: 2, title: "Специальные", url: "/converter/special" },
         { id: 3, title: "Инженерные", url: "/converter/engineering" },
         { id: 4, title: "Компьютерные", url: "/converter/computer" },
       ],
@@ -146,6 +146,18 @@ export const MainLayout: React.FC = () => {
       path: "/converter/special",
       component: (
         <ConverterBasicPage navigation={["Конвертер", "Специальные"]} />
+      ),
+    },
+    {
+      path: "/converter/engineering",
+      component: (
+        <ConverterBasicPage navigation={["Конвертер", "Инженерные"]} />
+      ),
+    },
+    {
+      path: "/converter/computer",
+      component: (
+        <ConverterBasicPage navigation={["Конвертер", "Компьютерные"]} />
       ),
     },
     {

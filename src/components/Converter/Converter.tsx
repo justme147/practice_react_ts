@@ -10,7 +10,7 @@ import { TextInput } from "../TextInput/TextInput";
 import { Button } from "../Button/Button";
 
 type ConverterProps = {
-  measurements: IMeasurementsChildList[]; //Исправить
+  measurements: IMeasurementsChildList[];
 };
 
 const cx = classNames.bind(styles);
@@ -39,6 +39,9 @@ export const Converter: React.FC<ConverterProps> = ({ measurements }) => {
   };
 
   const buttonResultHandler = (): void => {
+    // valueCash = parseInt(valueCash, 2);
+    // result = valueCash.toString(c[valueTo]);
+
     if (isNaN(+count)) {
       setError("Введено не число");
       return;

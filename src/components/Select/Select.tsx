@@ -25,6 +25,18 @@ export const Select: React.FC<SelectProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  useEffect(() => {
+    const listener = (e: any) => {
+      // console.log(e.target);
+    }
+
+    window.addEventListener('click', listener)
+
+    return () => {
+      window.removeEventListener('click', listener)
+    }
+  }, [])
+
   const itemClickHandler = (id: number): void => {
     changeValueHandler(id);
     setIsOpen(false);
