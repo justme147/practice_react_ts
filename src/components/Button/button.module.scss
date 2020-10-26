@@ -23,3 +23,11 @@
     margin-top: 25px;
   }
 }
+
+.disabled {
+  background-color: #777;
+  &:hover,
+  &:active {
+    background-color: #777;
+  }
+}

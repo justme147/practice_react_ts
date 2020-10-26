@@ -1,0 +1,33 @@
+.btn {
+  background: none;
+  border: 1px solid #0ec261;
+  color: #0ec261;
+  padding: 10px 0;
+  width: 150px;
+  border-bottom: none;
+  // border-radius: 4px;
+  cursor: pointer;
+
+  &:first-child {
+    border-right: none;
+    border-top-left-radius: 4px;
+    // border-bottom-right-radius: 0;
+  }
+
+  &:last-child {
+    // border-right: none;
+    border-top-right-radius: 4px;
+    // border-bottom-left-radius: 0;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #0ec261;
+  }
+
+  &__active {
+    color: #fff;
+    background-color: #0ec261;
+    // border-color: #fff;
+  }
+}

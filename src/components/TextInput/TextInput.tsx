@@ -7,14 +7,18 @@ const cx = classNames.bind(styles);
 
 type TextInputProps = {
   inputValue: string;
-  inputPlaceholder: string;
+  inputPlaceholder?: string;
   inputFocus?: boolean;
   inputReadOnly?: boolean;
-  width?: boolean;
-  inputChangeHandler?: (e: any) => void;
-  inputFocusHandler?: () => void;
-  inputBlurHandler?: () => void;
+  widthConverter?: boolean;
+  widthMatrix?: boolean;
+  inputChangeHandler?: (e: any, idxI?: number, idxJ?: number) => void;
+  inputFocusHandler?: (idxI?: number, idxJ?: number) => void;
+  inputBlurHandler?: (idxI?: number, idxJ?: number) => void;
+  inputMaxLength?: number;
   error?: string;
+  indexI?: number;
+  indexJ?: number;
 };
 
 export const TextInput: React.FC<TextInputProps> = ({
@@ -22,17 +26,22 @@ export const TextInput: React.FC<TextInputProps> = ({
   inputPlaceholder,
   inputFocus,
   inputReadOnly,
-  width,
+  widthConverter,
+  widthMatrix,
   inputChangeHandler,
   inputFocusHandler,
   inputBlurHandler,
+  inputMaxLength,
   error,
+  indexI,
+  indexJ,
 }) => {
   return (
     <label
       className={cx({
         label: true,
-        label__width: width,
+        label__widthConverter: widthConverter,
+        label__widthMatrix: widthMatrix,
         active: inputFocus || inputValue,
         error: error,
       })}
@@ -42,10 +51,11 @@ export const TextInput: React.FC<TextInputProps> = ({
         type="text"
         className={styles.input}
         value={inputValue}
-        onChange={(e) => inputChangeHandler!(e.target.value)}
-        onFocus={inputFocusHandler}
-        onBlur={inputBlurHandler}
+        onChange={(e) => inputChangeHandler!(e.target.value, indexI, indexJ)}
+        onFocus={() => inputFocusHandler!(indexI, indexJ)}
+        onBlur={() => inputBlurHandler!(indexI, indexJ)}
         readOnly={inputReadOnly}
+        maxLength={inputMaxLength}
       />
       {error && <span className={styles.alert}>{error}</span>}
     </label>

@@ -1,0 +1,36 @@
+.container {
+  position: relative;
+}
+
+.page {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  // padding: 20px 20px 0 0;
+  padding: 20px 0;
+  border-top: 1px solid #0ec261;
+  box-sizing: border-box;
+
+  &-enter {
+    opacity: 0;
+    // transform: scale(0.9);
+  }
+
+  &-enter-active {
+    opacity: 1;
+    // transform: scale(1.05);
+    transition: opacity 300ms, scale 300ms;
+  }
+
+  &-exit {
+    opacity: 1;
+    // transform: scale(1.05);
+  }
+
+  &-exit-active {
+    opacity: 0;
+    // transform: scale(0.9);
+    transition: opacity 300ms, scale 300ms;
+  }
+}

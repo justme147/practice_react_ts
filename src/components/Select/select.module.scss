@@ -18,8 +18,13 @@
     }
   }
 
-  &__width {
+  &__widthConverter {
     width: 45%;
+  }
+
+  &__widthMatrix {
+    width: 75px;
+    margin: 0 10px;
   }
 }
 

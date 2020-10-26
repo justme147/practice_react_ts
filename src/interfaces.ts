@@ -50,3 +50,8 @@ export interface IMeasurementsChildValuesList {
   title: string;
   value: number;
 }
+
+export interface IMatrixSizeList {
+  id: number;
+  title: string;
+}

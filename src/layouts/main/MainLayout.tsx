@@ -8,7 +8,8 @@ import { MainPage } from "../../pages/MainPage/MainPage";
 import { Menu } from "../../components/Menu/Menu";
 import { IMenuList, IHelpList, IRoutesList } from "../../interfaces";
 import { ErrorPage } from "../../pages/ErrorPage/ErrorPage";
-import { ConverterBasicPage } from "../../pages/ConverterBasicPage/ConverterBasicPage";
+import { ConverterPage } from "../../pages/ConverterPage/ConverterPage";
+import { MatrixPage } from "../../pages/MatrixPage/MatrixPage";
 
 export const MainLayout: React.FC = () => {
   const [menuList, setMenuList] = useState<IMenuList[]>([
@@ -140,29 +141,27 @@ export const MainLayout: React.FC = () => {
     },
     {
       path: "/converter/basic",
-      component: <ConverterBasicPage navigation={["Конвертер", "Базовые"]} />,
+      component: <ConverterPage navigation={["Конвертер", "Базовые"]} />,
     },
     {
       path: "/converter/special",
-      component: (
-        <ConverterBasicPage navigation={["Конвертер", "Специальные"]} />
-      ),
+      component: <ConverterPage navigation={["Конвертер", "Специальные"]} />,
     },
     {
       path: "/converter/engineering",
-      component: (
-        <ConverterBasicPage navigation={["Конвертер", "Инженерные"]} />
-      ),
+      component: <ConverterPage navigation={["Конвертер", "Инженерные"]} />,
     },
     {
       path: "/converter/computer",
-      component: (
-        <ConverterBasicPage navigation={["Конвертер", "Компьютерные"]} />
-      ),
+      component: <ConverterPage navigation={["Конвертер", "Компьютерные"]} />,
     },
     {
       path: "/matrix",
       component: <MainPage menuList={menuList} />,
+    },
+    {
+      path: "/matrix/addition",
+      component: <MatrixPage navigation={["Матрицы", "Сложение"]} />,
     },
     {
       path: "/slau",
